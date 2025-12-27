@@ -26,7 +26,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-6xl font-bold mb-6"
           >
-            About Aawaz
+            About Awaaz
           </motion.h1>
 
           <motion.p
@@ -35,7 +35,7 @@ export default function AboutPage() {
             transition={{ delay: 0.2 }}
             className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed"
           >
-            Aawaz exists to ensure that every citizen—regardless of literacy,
+            Awaaz exists to ensure that every citizen—regardless of literacy,
             language, or location—can access their rightful government benefits
             using just their voice.
           </motion.p>
@@ -59,7 +59,7 @@ export default function AboutPage() {
               language barriers, and digital literacy challenges.
             </p>
             <p className="text-slate-600 leading-relaxed">
-              Aawaz was built to change that. By combining AI, voice technology,
+              Awaaz was built to change that. By combining AI, voice technology,
               and localized languages, we bring government schemes directly to
               people—no paperwork confusion, no intermediaries.
             </p>
