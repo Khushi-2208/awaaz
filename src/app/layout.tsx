@@ -6,7 +6,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "Awaaz | Voice-First GovTech",
   description: "Empowering the elderly to access government schemes via voice AI.",
