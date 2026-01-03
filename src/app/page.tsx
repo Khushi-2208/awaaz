@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -42,14 +41,14 @@ const HERO_SLIDES = [
 ];
 
 const PROGRAMMES = [
-  { id: 1, title: "Education", desc: "Scholarships, loans, and skill development.", color: "bg-blue-600", count: "32 Schemes", icon: GraduationCap },
-  { id: 2, title: "Healthcare", desc: "Insurance, medicine, and maternity benefits.", color: "bg-rose-600", count: "45 Schemes", icon: Stethoscope },
-  { id: 3, title: "Livelihood", desc: "Employment, MNREGA, and business loans.", color: "bg-green-600", count: "28 Schemes", icon: Tractor },
-  { id: 4, title: "Women Power", desc: "Pension, safety, and self-help group funding.", color: "bg-orange-600", count: "24 Schemes", icon: Users },
-  { id: 5, title: "Housing", desc: "Affordable housing and water connection schemes.", color: "bg-teal-600", count: "18 Schemes", icon: Building2 },
-  { id: 6, title: "Social Security", desc: "Old age pensions and disability support.", color: "bg-yellow-600", count: "50 Schemes", icon: ShieldCheck },
-  { id: 7, title: "Digital Literacy", desc: "Free computer training and device access.", color: "bg-indigo-600", count: "12 Schemes", icon: Smartphone },
-  { id: 8, title: "Sanitation", desc: "Toilet construction and clean water initiatives.", color: "bg-cyan-600", count: "15 Schemes", icon: Globe },
+  { id: 1, title: "Education", desc: "Scholarships, loans, and skill development.", color: "bg-blue-600", icon: GraduationCap },
+  { id: 2, title: "Healthcare", desc: "Insurance, medicine, and maternity benefits.", color: "bg-rose-600", icon: Stethoscope },
+  { id: 3, title: "Livelihood", desc: "Employment, MNREGA, and business loans.", color: "bg-green-600", icon: Tractor },
+  { id: 4, title: "Women Power", desc: "Pension, safety, and self-help group funding.", color: "bg-orange-600", icon: Users },
+  { id: 5, title: "Housing", desc: "Affordable housing and water connection schemes.", color: "bg-teal-600", icon: Building2 },
+  { id: 6, title: "Social Security", desc: "Old age pensions and disability support.", color: "bg-yellow-600", icon: ShieldCheck },
+  { id: 7, title: "Digital Literacy", desc: "Free computer training and device access.", color: "bg-indigo-600", icon: Smartphone },
+  { id: 8, title: "Sanitation", desc: "Toilet construction and clean water initiatives.", color: "bg-cyan-600", icon: Globe },
 ];
 
 const TESTIMONIALS = [
@@ -61,11 +60,9 @@ const TESTIMONIALS = [
 ];
 
 export default function Home() {
-  // State for the Image Slider 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showAllProgrammes, setShowAllProgrammes] = useState(false);
 
-  // Auto-slide logic
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
@@ -75,33 +72,17 @@ export default function Home() {
 
   return (
     <main className="font-sans bg-[#FFFBF2] selection:bg-orange-200 selection:text-orange-900">
-
-      {/* --- HERO SECTION --- */}
       <section className="relative h-[90vh] w-full flex items-center overflow-hidden bg-slate-900">
-
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
+          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
             <source src="/hero/vid.mp4" type="video/mp4" />
           </video>
-
           <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent z-10" />
         </div>
 
         <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2">
           <div className="text-left">
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
                 Government Schemes, <br /> Simplified.
               </h1>
@@ -111,24 +92,24 @@ export default function Home() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <button className="bg-[#E65100] hover:bg-[#FF6D00] text-white text-lg font-bold px-8 py-4 rounded-full flex items-center gap-3 transition-all shadow-lg hover:shadow-orange-500/40 hover:-translate-y-1">
-                  <Mic className="animate-pulse" /> Speak to Search
-                </button>
+                <Link href="/dashboard">
+                  <button className="bg-[#E65100] hover:bg-[#FF6D00] text-white text-lg font-bold px-8 py-4 rounded-full flex items-center gap-3 transition-all shadow-lg hover:shadow-orange-500/40 hover:-translate-y-1">
+                    <Mic className="animate-pulse" /> Speak to Search
+                  </button>
+                </Link>
+
                 <a
                   href="#schemes"
                   className="bg-white/10 hover:bg-white/20 border border-white text-white text-lg font-bold px-8 py-4 rounded-full flex items-center gap-3 transition-all backdrop-blur-sm hover:-translate-y-1"
                 >
                   Explore Schemes <ArrowRight size={20} />
                 </a>
-
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
 
-      {/* --- STATS STRIP --- */}
       <div className="bg-[#3E2723] text-white py-12 border-b-4 border-orange-600">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
           <AnimatedStat icon={FileText} value={120} label="Schemes Listed" suffix="+" />
@@ -137,7 +118,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* --- OUR STORY --- */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <div className="mb-12">
@@ -147,9 +127,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Image Slider Container */}
           <div className="relative w-full aspect-video bg-slate-900 rounded-2xl overflow-hidden shadow-2xl group">
-
             <AnimatePresence mode='wait'>
               <motion.div
                 key={currentSlide}
@@ -159,21 +137,13 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 className="absolute inset-0"
               >
-                {/* Slide Background Image */}
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-4000 ease-in-out transform scale-100 group-hover:scale-105"
                   style={{ backgroundImage: `url(${HERO_SLIDES[currentSlide].image})` }}
                 />
-
                 <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
-
-                {/* Slide Text Content */}
                 <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 text-left">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                  >
+                  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
                     <h3 className={`text-3xl md:text-5xl font-bold mb-3 ${HERO_SLIDES[currentSlide].accent}`}>
                       {HERO_SLIDES[currentSlide].title}
                     </h3>
@@ -194,12 +164,10 @@ export default function Home() {
                 />
               ))}
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* --- OUR PROGRAMMES --- */}
       <section id="schemes" className="py-24 bg-[#FFFBF2] scroll-mt-32">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -217,7 +185,6 @@ export default function Home() {
                   title={prog.title}
                   desc={prog.desc}
                   color={prog.color}
-                  count={prog.count}
                   icon={prog.icon}
                 />
               ))}
@@ -236,7 +203,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- REAL STORIES --- */}
       <section className="py-24 bg-white overflow-hidden">
         <div className="mb-16 px-4">
           <h2 className="text-3xl md:text-5xl font-bold text-center text-slate-900 mb-4">
@@ -253,21 +219,12 @@ export default function Home() {
             <motion.div
               className="flex gap-8 px-4"
               animate={{ x: ["0%", "-50%"] }}
-              transition={{
-                repeat: Infinity,
-                ease: "linear",
-                duration: 30
-              }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
               whileHover={{ animationPlayState: "paused" }}
             >
               {[...TESTIMONIALS, ...TESTIMONIALS].map((item, index) => (
                 <div key={index} className="w-87.5 md:w-100 shrink-0">
-                  <TestimonialCard
-                    name={item.name}
-                    location={item.location}
-                    role={item.role}
-                    quote={item.quote}
-                  />
+                  <TestimonialCard {...item} />
                 </div>
               ))}
             </motion.div>
@@ -275,7 +232,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- FAQ SECTION --- */}
       <section id="faqs" className="py-8 bg-[#FFFBF2] scroll-mt-32">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-xl font-bold text-center mb-4 text-slate-900">
@@ -294,12 +250,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-
     </main>
   );
 }
-
-// --- SUB-COMPONENTS ---
 
 const AnimatedStat = ({ icon: Icon, value, label, suffix }: any) => {
   const ref = useRef(null);
@@ -337,33 +290,34 @@ const AnimatedStat = ({ icon: Icon, value, label, suffix }: any) => {
 
 const ProgrammeCard = ({ title, desc, color, count, icon: Icon }: any) => (
   <Link href={`/schemes/${title}`}>
-  <motion.div
-    layout
-    initial={{ opacity: 0, scale: 0.9 }}
-    animate={{ opacity: 1, scale: 1 }}
-    exit={{ opacity: 0, scale: 0.9 }}
-    transition={{ duration: 0.3 }}
-    className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer hover:-translate-y-2"
-  >
-    <div className={`h-40 ${color} relative flex items-center justify-center`}>
-      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all" />
-      <Icon className="text-white/80 group-hover:text-white group-hover:scale-110 transition-transform duration-500" size={64} />
-      <div className="absolute bottom-0 left-0 w-full p-4 bg-linear-to-t from-black/50 to-transparent">
-        <span className="text-white font-bold text-sm tracking-wide">{count}</span>
+    <motion.div
+      layout
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.3 }}
+      className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer hover:-translate-y-2"
+    >
+      <div className={`h-40 ${color} relative flex items-center justify-center`}>
+        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all" />
+        <Icon className="text-white/80 group-hover:text-white group-hover:scale-110 transition-transform duration-500" size={64} />
+        <div className="absolute bottom-0 left-0 w-full p-4 bg-linear-to-t from-black/50 to-transparent">
+          <span className="text-white font-bold text-sm tracking-wide">{count}</span>
+        </div>
       </div>
-    </div>
-    <div className="p-6">
-      <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
-        {title}
-      </h3>
-      <p className="text-slate-600 text-sm leading-relaxed mb-4">
-        {desc}
-      </p>
-      <div className="flex items-center text-orange-600 font-bold text-sm gap-1">
-        Read More <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
+          {title}
+        </h3>
+        <p className="text-slate-600 text-sm leading-relaxed mb-4">
+          {desc}
+        </p>
+        <div className="flex items-center text-orange-600 font-bold text-sm gap-1">
+          Read More <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+        </div>
       </div>
-    </div>
-  </motion.div> </Link>
+    </motion.div>
+  </Link>
 );
 
 const TestimonialCard = ({ name, location, role, quote }: any) => (
@@ -372,7 +326,6 @@ const TestimonialCard = ({ name, location, role, quote }: any) => (
       <Quote size={40} className="text-orange-300 rotate-180" />
     </div>
     <p className="text-slate-700 text-lg italic mb-6 grow leading-relaxed">"{quote}"</p>
-
     <div className="mt-auto border-t border-slate-200 pt-4">
       <div className="flex items-center justify-between">
         <div>
