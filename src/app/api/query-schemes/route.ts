@@ -2,11 +2,20 @@ import { NextRequest, NextResponse } from 'next/server';
 import { DataAPIClient } from '@datastax/astra-db-ts';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const client = new DataAPIClient(process.env.ASTRA_DB_APPLICATION_TOKEN!);
-const db = client.db(process.env.ASTRA_DB_API_ENDPOINT!, {
-  keyspace: process.env.ASTRA_DB_KEYSPACE
+const ASTRA_DB_APPLICATION_TOKEN = process.env.ASTRA_DB_APPLICATION_TOKEN;
+const ASTRA_DB_API_ENDPOINT = process.env.ASTRA_DB_API_ENDPOINT;
+const ASTRA_DB_KEYSPACE = process.env.ASTRA_DB_KEYSPACE;
+const GOOGLE_GEMINI_API_KEY = process.env.GOOGLE_GEMINI_API_KEY;
+
+if (!ASTRA_DB_APPLICATION_TOKEN || !ASTRA_DB_API_ENDPOINT || !GOOGLE_GEMINI_API_KEY) {
+  throw new Error('Missing required environment variables');
+}
+
+const client = new DataAPIClient(ASTRA_DB_APPLICATION_TOKEN);
+const db = client.db(ASTRA_DB_API_ENDPOINT, {
+  keyspace: ASTRA_DB_KEYSPACE
 });
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY!);
+const genAI = new GoogleGenerativeAI(GOOGLE_GEMINI_API_KEY);
 
 // Helper function to check language
 function detectLanguageType(text: string): string {
