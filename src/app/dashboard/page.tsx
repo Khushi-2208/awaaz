@@ -261,7 +261,7 @@ export default function Dashboard() {
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">
                 Namaste / नमस्ते / प्रणाम
               </span>
-              Welcome to Aawaz
+              Welcome to Awaaz
             </h1>
             
             <div className="text-slate-300 text-lg md:text-xl mb-12 max-w-3xl mx-auto space-y-3 leading-relaxed">
