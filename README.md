@@ -10,7 +10,7 @@
 ![Gemini](https://img.shields.io/badge/AI-Google%20Gemini-blueviolet)
 
 
-## 🔗 **Live Demo:** https://awaaz12-47lq.vercel.app/
+## 🔗 **Live Demo:** https://awaaz22-vtvd.vercel.app/
 
 ## 🚀 Overview
 
