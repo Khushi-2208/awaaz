@@ -93,7 +93,7 @@ export default function Dashboard() {
       if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
         const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
         recognitionRef.current = new SpeechRecognition();
-        recognitionRef.current.continuous = true;
+        recognitionRef.current.continuous = false;
         recognitionRef.current.interimResults = true;
         recognitionRef.current.lang = 'en-IN'; 
 
@@ -107,6 +107,10 @@ export default function Dashboard() {
           if (finalTranscript) {
             setInputText(prev => (prev + ' ' + finalTranscript).trim());
           }
+        };
+
+        recognitionRef.current.onend = () => {
+          setIsListening(false);
         };
 
         recognitionRef.current.onerror = (event: any) => {
@@ -302,7 +306,7 @@ export default function Dashboard() {
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
                 placeholder={isListening ? "Listening..." : "Type or speak..."}
-                className="flex-1 bg-transparent border-none focus:ring-0 text-lg md:text-4xl px-3 md:px-10 text-slate-800 placeholder:text-slate-400 h-full font-medium"
+                className="flex-1 bg-transparent border-none focus:ring-0 text-lg md:text-4xl px-3 md:px-10 text-slate-800 placeholder:text-slate-400 h-full font-medium min-w-0"
               />
 
               <button
