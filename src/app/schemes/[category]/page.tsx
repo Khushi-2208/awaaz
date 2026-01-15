@@ -85,7 +85,7 @@ const CATEGORY_INFO: Record<string, {
     icon: Shield,
     color: 'from-yellow-600 to-yellow-700'
   },
-  banking: {
+  digital: {
     title: 'Digital Literacy',
     titleHindi: 'डिजिटल साक्षरता',
     titleBhojpuri: 'डिजिटल साक्षरता',
@@ -93,7 +93,7 @@ const CATEGORY_INFO: Record<string, {
     icon: Smartphone,
     color: 'from-indigo-500 to-indigo-600'
   },
-  sanitation: {
+  hygiene: {
     title: 'Sanitation',
     titleHindi: 'स्वच्छता',
     titleBhojpuri: 'सफाई',
@@ -107,8 +107,8 @@ const normalizeCategoryKey = (categoryParam: string): string => {
   const normalized = categoryParam.toLowerCase().replace(/\s+/g, '');
   
   const categoryMap: Record<string, string> = {
-    'digitalliteracy': 'banking',
-    'sanitation': 'sanitation',
+    'digitalliteracy': 'digital',
+    'sanitation': 'hygiene',
     'education': 'education',
     'healthcare': 'healthcare',
     'livelihood': 'employment',

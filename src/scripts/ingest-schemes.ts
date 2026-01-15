@@ -52,7 +52,10 @@ const SchemeURLs = [
   'https://swachhbharatmission.ddws.gov.in/',
   'https://www.sspmis.bihar.gov.in/',
   'https://nsap.nic.in/',
-  'https://esamajkalyan.gujarat.gov.in/'
+  'https://esamajkalyan.gujarat.gov.in/',
+  "https://www.nielit.gov.in/content/national-digital-literacy-mission",
+  "https://www.egovtschemes.com/pmgdisha/",
+  "https://www.jansamarth.in/namaste-scheme",
 ];
 
 interface StructuredScheme {

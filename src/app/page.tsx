@@ -47,8 +47,8 @@ const PROGRAMMES = [
   { id: 4, key: 'women', title: "Women", desc: "Pension, safety, and self-help group funding.", color: "bg-orange-600", icon: Users },
   { id: 5, key: 'housing', title: "Housing", desc: "Affordable housing and water connection schemes.", color: "bg-teal-600", icon: Building2 },
   { id: 6, key: 'pension', title: "Social Security", desc: "Old age pensions and disability support.", color: "bg-yellow-600", icon: ShieldCheck },
-  { id: 7, key: 'banking', title: "Digital Literacy", desc: "Free computer training and device access.", color: "bg-indigo-600", icon: Smartphone },
-  { id: 8, key: 'sanitation', title: "Sanitation", desc: "Toilet construction and clean water initiatives.", color: "bg-cyan-600", icon: Globe },
+  { id: 7, key: 'digital', title: "Digital Literacy", desc: "Free computer training and device access.", color: "bg-indigo-600", icon: Smartphone },
+  { id: 8, key: 'hygiene', title: "Sanitation", desc: "Toilet construction and clean water initiatives.", color: "bg-cyan-600", icon: Globe },
 ];
 
 const TESTIMONIALS = [
