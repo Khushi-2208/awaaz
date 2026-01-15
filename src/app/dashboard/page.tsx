@@ -95,7 +95,7 @@ export default function Dashboard() {
         recognitionRef.current = new SpeechRecognition();
         recognitionRef.current.continuous = true;
         recognitionRef.current.interimResults = true;
-        recognitionRef.current.lang = 'hi-IN'; 
+        recognitionRef.current.lang = 'en-IN'; 
 
         recognitionRef.current.onresult = (event: any) => {
           let finalTranscript = '';
@@ -136,7 +136,7 @@ export default function Dashboard() {
       recognitionRef.current.stop();
       setIsListening(false);
     } else {
-      recognitionRef.current.lang = 'hi-IN'; 
+      recognitionRef.current.lang = 'en-IN'; 
       recognitionRef.current.start();
       setIsListening(true);
     }

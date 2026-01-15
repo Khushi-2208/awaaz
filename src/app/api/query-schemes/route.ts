@@ -20,7 +20,7 @@ const genAI = new GoogleGenerativeAI(GOOGLE_GEMINI_API_KEY);
 // Helper function to check language
 function detectLanguageType(text: string): string {
   const hindiPattern = /[\u0900-\u097F]/;
-  const bhojpuriKeywords = ['के', 'सकेला', 'बा', 'बानी', 'रहल', 'जाला', 'आवेला', 'करेला', 'खातिर', 'रउआ', 'हमार', 'हमरा'];
+  const bhojpuriKeywords = ['के', 'सकेला', 'बा', 'बानी', 'रहल', 'जाला', 'आवेला', 'करेला', 'खातिर', 'रउआ', 'हमार', 'हमरा', 'karela','baa','baani','rahal','jaala','jala','aawela','khatir','rauaa','hmaar','hamra','Tohar','bani','karat'];
   
   if (!hindiPattern.test(text)) {
     return 'en';
@@ -63,7 +63,7 @@ Rules:
 - age: extract exact number, if not mentioned use null
 - gender: "male" if query has male/man/boy/पुरुष/लड़का/मर्द, "female" if female/woman/girl/महिला/लड़की/औरत, otherwise "all"
 - language: 
-  * "bho" if query contains Bhojpuri words like: के, सकेला, बा, बानी, रहल, जाला, आवेला, करेला, खातिर, रउआ, हमार, हमरा
+  * "bho" if query contains Bhojpuri words like: के, सकेला, बा, बानी, रहल, जाला, आवेला, करेला, खातिर, रउआ, हमार, हमरा, karela, baa, baani, rahal, jaala, jala, aawela, khatir, rauaa, hmaar, hamra, Tohar, bani, karat
   * "hi" if query contains Hindi/Devanagari characters but not Bhojpuri
   * "en" otherwise
 - state: extract state name if mentioned (bihar/बिहार, uttar pradesh/उत्तर प्रदेश, jharkhand/झारखंड, etc). If not mentioned, use "all"
